@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 18/07/2018, 02:34:14
+    Author     : leo
+*/
+
+.grid-container {
+    display: grid;
+    grid-template: 290px / auto auto auto;
+    /*grid-gap: 60px;*/
+    padding: 10px;
+    float: left;
+
+
+}
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:20px 0;
+    font-size: 14px;
+}
+.title {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+
+}
+.title a {
+    color: #787878;
+    text-decoration: none;
+}

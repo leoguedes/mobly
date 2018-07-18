@@ -4,18 +4,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Product Entity
+ * CategoryProduct Entity
  *
  * @property int $id
- * @property string $name
- * @property string $description
- * @property string $image
- * @property float $price
- * @property string $features
+ * @property int $category_id
+ * @property int $product_id
  *
- * @property \App\Model\Entity\Category[] $category
+ * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Product $product
  */
-class Product extends Entity
+class CategoryProduct extends Entity
 {
 
     /**
@@ -28,11 +26,9 @@ class Product extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'description' => true,
-        'image' => true,
-        'price' => true,
-        'features' => true,
-        'category' => true
+        'category_id' => true,
+        'product_id' => true,
+        'category' => true,
+        'product' => true
     ];
 }

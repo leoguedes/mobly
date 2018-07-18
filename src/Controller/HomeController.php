@@ -20,7 +20,7 @@ class HomeController extends AppController {
      *
      * @return \Cake\Http\Response|void
      */
-    public function index() {
+    public function index($id = null) {
         $this->viewBuilder()->setLayout('mobly');
 
         $this->loadModel('Category');
@@ -30,6 +30,14 @@ class HomeController extends AppController {
         $this->loadModel('Product');
         $product = $this->Product->find('all', ['order' => ['Product.price' => 'ASC']]);
         $this->set(compact('product'));
+
+        if ($id) {
+            $categoryProduct = $this->Category->get($id, [
+                'contain' => ['Product']
+            ]);
+
+            $this->set('categoryProduct', $categoryProduct);
+        }
     }
 
 }

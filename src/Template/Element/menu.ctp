@@ -5,9 +5,10 @@
         font-size: 16px;
         font-weight: 200;
         background-color: #2e353d;
-        position: fixed;
+        position: relative;
+
         /*top: 0px;*/
-        width: 300px;
+        width: 240px;
         height: 100%;
         color: #e1ffff;
         float: left;
@@ -161,9 +162,9 @@
     <div class="menu-list">
 
         <ul id="menu-content" class="menu-content collapse out">
-              <?php foreach ($category as $cat): ?>
-            <li><?= $this->Html->link($cat->name, ['action' => 'view', $cat->id]) ?></li>
-        <?php endforeach; ?>
+            <?php foreach ($category as $cat): ?>
+                <li><?= $this->Html->link($cat->name, ['controller' => 'home', 'action' => 'index', $cat->id]) ?></li>
+            <?php endforeach; ?>
 
         </ul>
     </div>

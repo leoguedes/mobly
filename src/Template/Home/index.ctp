@@ -1,44 +1,25 @@
-<style>
-    .grid-container {
-        display: grid;
-        grid-template: 250px / auto auto auto;
-        grid-gap: 60px;
-        padding: 10px;
-    }
-    .grid-container>div {
-        background-color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-        padding:20px 0;
-        font-size: 14px;
-    }
-    .title {
-        width: 300px;
-        text-align: center;
-        margin: 0 auto;
-        margin-top: 10px;
-
-    }
-    .title a {
-        color: #787878;
-        text-decoration: none;
-    }
-</style>
-
+<?= $this->Html->css('home_grid.css'); ?>
 <div class="grid-container">
-    <?php foreach ($product as $prod):?>
-    <div class="item1">
-        <?php echo $this->Html->link($this->Html->image(
-                    $prod->image,array('width'=>'200px')),
-                                ['controller' => 'Product',
-                                    'action' => 'view', $prod->id],
-                                array('escape' => false));
-        ?>
-        <div class='title'>
-            <?= $this->Html->link($prod->name, ['action' => 'view', $prod->id]) ?><br>
-            <b><?= $this->Html->link('R$'.$prod->price, ['action' => 'view', $prod->id]) ?></b>
+    <?php $products = isset($categoryProduct->product) ? $categoryProduct->product : $product; ?>
+    <?php foreach ($products as $product): ?>
+        <div class="item1">
+            <?php
+            echo $this->Html->link($this->Html->image(
+                            $product->image, array('width' => '200px')), ['controller' => 'Product',
+                'action' => 'view', $product->id], array('escape' => false));
+            ?>
+            <div class='title'>
+                <?=
+                $this->Html->link($product->name, ['controller' => 'Product',
+                    'action' => 'view', $product->id])
+                ?><br>
+                <b><?=
+                    $this->Html->link('R$' . $product->price, ['controller' => 'Product',
+                        'action' => 'view', $product->id])
+                    ?></b>
 
+            </div>
         </div>
-    </div>
     <?php endforeach; ?>
 
 </div>

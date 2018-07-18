@@ -77,6 +77,11 @@ class ProductTable extends Table
             ->requirePresence('price', 'create')
             ->notEmpty('price');
 
+        $validator
+            ->scalar('features')
+            ->maxLength('features', 4294967295)
+            ->allowEmpty('features');
+
         return $validator;
     }
 }

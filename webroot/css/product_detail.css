@@ -1,0 +1,125 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 18/07/2018, 02:36:57
+    Author     : leo
+*/
+
+.container {
+    max-width: 1110px;
+    /*margin: 0 auto;*/
+    padding: 10px;
+    display: flex;
+    float: right;
+}
+
+/* Columns */
+.left-column {
+    width: 40%;
+    position: relative;
+
+}
+
+.right-column {
+    width: 35%;
+    position: relative;
+    float: right;
+    /*margin-top: 60px;*/
+}
+
+
+/* Left Column */
+.left-column img {
+    /*        width: max-content;*/
+    /*position: absolute;*/
+
+    top: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.left-column img.active {
+    opacity: 1;
+}
+
+
+/* Right Column */
+
+/* Product Description */
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+}
+.product-description span {
+    font-size: 11px;
+    color: #358ED7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.product-description h1 {
+    font-weight: 300;
+    font-size: 25px;
+    color: #43484D;
+    letter-spacing: -2px;
+    top: 0;
+}
+.product-description p {
+    font-size: 13px;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
+}
+
+/* Product Configuration */
+.product-color span,
+.cable-config span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #86939E;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+
+/* Product Price */
+.product-price {
+    display: flex;
+    align-items: center;
+}
+
+.product-price span {
+    font-size: 26px;
+    font-weight: 300;
+    color: #43474D;
+    margin-right: 20px;
+}
+
+.cart-btn {
+    display: inline-block;
+    background-color: #7DC855;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+}
+.cart-btn:hover {
+    background-color: #64af3d;
+}
+
+.features {
+    float: right;
+    width: 70%;
+    position: absolute;
+    margin-top: 400px;
+
+}
+.features h1 {
+    font-size: 24px;
+    font-weight: bold;
+}

@@ -19,8 +19,7 @@ class ProductController extends AppController {
      * @return \Cake\Http\Response|void
      */
     public function index() {
-        $product = $this->Product->find('all', ['contain' => ['Category']]);
-
+        $product = $this->paginate($this->Product);
 
         $this->set(compact('product'));
     }
@@ -33,6 +32,12 @@ class ProductController extends AppController {
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null) {
+        $this->viewBuilder()->setLayout('mobly');
+
+        $this->loadModel('Category');
+        $category = $this->Category->find('all');
+        $this->set(compact('category'));
+
         $product = $this->Product->get($id, [
             'contain' => ['Category']
         ]);
