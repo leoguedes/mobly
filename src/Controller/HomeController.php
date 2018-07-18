@@ -40,4 +40,23 @@ class HomeController extends AppController {
         }
     }
 
+    public function myCart($user) {
+
+        $this->viewBuilder()->setLayout('mobly');
+        $this->loadModel('Category');
+        $category = $this->Category->find('all');
+
+        $session = $this->request->session();
+
+        $sessionInfo = $session->read($user) ? $session->read($user) : NULL;
+
+        $this->set('sessionInfo', $sessionInfo);
+
+        $this->set(compact('category'));
+
+//        if (!$_SESSION[$user]) {
+//
+//        }
+    }
+
 }

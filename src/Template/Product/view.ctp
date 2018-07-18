@@ -20,7 +20,8 @@
         <!-- Product Pricing -->
         <div class="product-price">
             <span>R$<?= $product->price ?></span>
-            <a href="#" class="cart-btn">Adicionar ao Carrinho</a>
+            <!--<a href="#" class="cart-btn">Adicionar ao Carrinho</a>-->
+            <?php echo $this->Html->link('Adicionar ao Carrinho', array('action' => 'addToCart', $product->id), array('class' => 'cart-btn')); ?>
         </div>
     </div>
     <div class="features"> <h1>Caractersíticas Gerais</h1> </br>

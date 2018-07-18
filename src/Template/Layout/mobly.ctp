@@ -10,9 +10,14 @@
 
         <header>
 
-            <?php echo $this->Html->link('Mobly', '/'); ?>
+            <div class='shop_cart'>
+                <?php // echo $this->Html->link('Mobly', '/'); ?>
+                <?php
+//                echo $this->Html->image('shoppingcart.png', array('width' => '36px')) . ' Carrinho';
 
-
+                echo $this->Html->link($this->Html->image('shoppingcart.png', array('width' => '36px')), array('controller' => 'home', 'action' => 'myCart', 'leoguepe'), array('escape' => false));
+//                echo $this->Html->link($this->Html->image('mobly.jpg', array('width' => '36px')), array('controller' => 'home', 'action' => 'myCart', 'leoguepe'));
+                ?>
         </header>
 
         <section>

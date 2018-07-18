@@ -108,4 +108,39 @@ class ProductController extends AppController {
         return $this->redirect(['action' => 'index']);
     }
 
+    public function addToCart($id) {
+        $product = $this->Product->get($id);
+        ini_set('session.gc_maxlifetime', 10);
+
+
+        session_set_cookie_params(10);
+        $session = $this->request->session();
+
+        if (!$session->read('leoguepe')) {
+            $_SESSION['leoguepe']['Products'][$product->id] = ['id' => $product->id, 'name' => $product->name,
+                'price' => $product->price, 'image' => $product->image, 'count' => 1];
+
+            $_SESSION ['leoguepe']['User'] = ['username' => 'leoguepe', 'name' => 'Leonardo Guedes',
+                'address' => 'Avenida Nossa Senhora de Copacabana, 1250/606 - Copacabana/RJ'];
+        } else {
+            if (isset($_SESSION['leoguepe']['Products'][$product->id])) {
+                $_SESSION['leoguepe']['Products'][$product->id]['count'] = $_SESSION['leoguepe']['Products'][$product->id]['count'] + 1;
+            } else {
+                $_SESSION['leoguepe']['Products'][$product->id] = ['id' => $product->id, 'name' => $product->name,
+                    'price' => $product->price, 'image' => $product->image, 'count' => 1];
+            }
+        }
+
+        $tmpCount = 0;
+
+        foreach ($_SESSION['leoguepe']['Products'] as $productDetail) {
+            $tmpCount = $tmpCount + ($productDetail['count'] * $productDetail['price']);
+        }
+
+        $_SESSION['leoguepe']['Order']['Total'] = $tmpCount;
+
+        $this->set('product', $product);
+        return $this->redirect(['controller' => 'home', 'action' => 'myCart', 'leoguepe']);
+    }
+
 }

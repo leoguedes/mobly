@@ -56,3 +56,24 @@ section:after {
         height: auto;
     }
 }
+
+.shop_cart {
+    color: #fff;
+    font-size: 21px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.shop_cart span{
+    color: #fff;
+    font-size: 21px;
+    vertical-align: middle;
+    float: right;
+}
+.shop_cart img{
+    vertical-align: middle;
+    float: right;
+    margin-right: 500px;
+    margin-top: 40px;
+
+}
